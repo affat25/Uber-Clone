@@ -1,23 +1,14 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-import React from 'react';
-import {StatusBar} from 'react-native';
-
-import HomeScreen from './src/screens/HomeScreen';
-
-const App: () => React$Node = () => {
+const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <HomeScreen/>
-    </>
-  );
-};
+    <View>
+      <Text>App</Text>
+    </View>
+  )
+}
 
-export default App;
+export default App
+
+const styles = StyleSheet.create({})
