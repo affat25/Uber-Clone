@@ -30,6 +30,7 @@ export const colors = {
     blue:'#286ef0',
     black: "#000000",
     white: "#ffffff",
+    green: "#0E4732",
     darkBlue:"#2d328a",
     pagebackground:"white"
 
