@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text, Dimensions, ScrollView, StatusBar } from 'react-native';
+import { StyleSheet, View, Text, Dimensions, ScrollView, StatusBar,Image, FlatList } from 'react-native';
 import { colors, parameters } from '../../global/styles';
 import { Icon } from '@rneui/base'
+import { filterData } from '../../global/data';
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
@@ -23,10 +24,99 @@ const HomeScreen = () => {
             <Text style={styles.text1}>Destress your commute</Text>
             <View style={styles.view1}>
               <View style={styles.view8}>
-                <Text>Read a book.Take a nap.Star out the window</Text>
+                <Text style={styles.text2}>Read a book.Take a nap.Stare out the window</Text>
+                <View style ={styles.button1}>
+                  <Text style={styles.button1Text}>Ride with Uber</Text>
+                </View>
+              </View>
+              <View>
+                <Image
+                    style ={styles.image1}
+                    source={require('../../assets/uberCar.png')}
+                />
               </View>
             </View>
           </View>
+          <View>
+              <FlatList
+                  numRows={4}
+                  horizontal={true}
+                  showsHorizontalScrollIndicator ={false}
+                  data={filterData}
+                  keyExtractor={(item)=>item.id}
+                  renderItem={({item}) =>(
+                    <View style={styles.card}>
+                      <View style ={styles.view2}>
+                        <Image style ={styles.image2} source={item.image}/>
+                      </View>
+                      <View>
+                        <Text style ={styles.title}>{item.name}</Text>
+                      </View>
+                    </View>
+                  )}
+              />
+            </View>
+            <View style={styles.view3}>
+              <Text style = {styles.text3}>Where to ?</Text>
+              <View style ={styles.view4}>
+                <Icon type="material-community"
+                  name="clock-time-four"
+                  color={colors.grey1}
+                  size={26} 
+                />
+                <Text style={{marginLeft:5}}>Now</Text>
+                <Icon type="material-community"
+                  name="chevron-down"
+                  color={colors.grey}
+                  size={26} 
+                />
+              </View>
+            </View>
+            <View style ={styles.view5}>
+              <View style ={styles.view6}>
+                <View style ={styles.view7}>
+                  <Icon type="material-community"
+                    name="map-marker"
+                    color={colors.black}
+                    size={22} 
+                  />
+                </View>
+                <View>
+                  <Text style={{fontSize:18, color:colors.black}}>Hunter College</Text>
+                  <Text style={{color:colors.grey3}}>Lexington Ave, 68th Street, Manhattan</Text>
+                </View>
+                <View>
+                  <Icon type="material-community"
+                      name="chevron-right"
+                      color={colors.grey}
+                      size={26} 
+                    />
+                </View>
+              </View>
+            </View>
+            <View style ={{...styles.view5,borderBottomWidth:0}}>
+              <View style ={styles.view6}>
+                <View style ={styles.view7}>
+                  <Icon type="material-community"
+                    name="map-marker"
+                    color={colors.black}
+                    size={22} 
+                  />
+                </View>
+                <View>
+                  <Text style={{fontSize:18, color:colors.black}}>Madison Square Garden</Text>
+                  <Text style={{color:colors.grey3}}>4 Pennsylvania Plaza, New York, NY 100</Text>
+                </View>
+                <View>
+                  <Icon type="material-community"
+                      name="chevron-right"
+                      color={colors.grey}
+                      size={26} 
+                    />
+                </View>
+              </View>
+            </View>
+            <Text style={styles.text4}>Around You</Text>
         </ScrollView>
         <StatusBar style="light" backgroundColor= "#2058c0" translucent={true}/>
     </View> 
